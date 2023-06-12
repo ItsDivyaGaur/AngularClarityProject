@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Johney",
+      "lastName": "Harris",
+      "email": "johney@gmail.com",
+      "gender": "male",
+      "userType": "regular"
+    },
+    {
+      "id": 2,
+      "firstName": "Peter",
+      "lastName": "Ferris",
+      "email": "peter@gmail.com",
+      "gender": "male",
+      "userType": "guest"
+    },
+    {
+      "id": 3,
+      "firstName": "Mary",
+      "lastName": "Reich",
+      "email": "mary@gmail.com",
+      "gender": "female",
+      "userType": "regular"
+    },
+    {
+      "id": 4,
+      "firstName": "Smith",
+      "lastName": "Johnson",
+      "email": "smith@gmail.com",
+      "gender": "male",
+      "userType": "Guest"
+    },
+    {
+      "firstName": "Johney",
+      "lastName": "abcd",
+      "email": "johney@gmail.com",
+      "gender": "male",
+      "userType": "Regular",
+      "id": 6
+    },
+    {
+      "firstName": "Divya",
+      "lastName": "Gaur",
+      "email": "divya@gmail.com",
+      "gender": "female",
+      "userType": "regular",
+      "id": 7
+    },
+    {
+      "firstName": "Divya",
+      "lastName": "Gaur",
+      "email": "divya@gmail.com",
+      "gender": "female",
+      "userType": "regular",
+      "id": 8
+    }
+  ]
+}

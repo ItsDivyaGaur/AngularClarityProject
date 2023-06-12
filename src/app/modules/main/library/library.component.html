@@ -1,0 +1,19 @@
+<div class="container">
+  <table class="table">
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let data of booksData">
+        <td *ngFor="let col of index">
+          {{data[col]}}
+        </td>
+      </tr>
+    </tbody>
+  </table> 
+  <div>
+    <!-- <span>Link to Download the Book: Book Name {{ file.size | filesize:'megabyte' }}</span> -->
+  </div>
+</div>

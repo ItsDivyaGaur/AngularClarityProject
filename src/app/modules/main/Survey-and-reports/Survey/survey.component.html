@@ -1,0 +1,227 @@
+<p>Thanks for filling out the survey</p>
+<clr-wizard #wizardlg [(clrWizardOpen)]="lgOpen" clrWizardSize="lg">
+    <clr-wizard-title>Add New User</clr-wizard-title>
+
+    <clr-wizard-button [type]="'cancel'">Cancel</clr-wizard-button>
+    <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
+    <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
+    <clr-wizard-button [type]="'finish'">Finish</clr-wizard-button>
+
+    <clr-wizard-page>
+        <ng-template clrPageTitle>User Information</ng-template>
+        <form clrForm>
+            <!-- ================================================ -->
+            <div class="container-fluid py-3">
+                <div class="row justify-content-center my-5">
+                  <div class="col-12">
+                    <form #form="ngForm" class = "userInfo">
+                      <div class="row">
+                        <div class="col mb-2">
+                          <label for="firstName" class="form-label md-4">First Name:</label>
+                          <input type="text" id="name" name="name" #firstName="ngModel" [(ngModel)]="user.firstName" required minlength="1" maxlength="250" class="form-control form-control-sm" [class.is-invalid]="firstName.invalid && (firstName.dirty || firstName.touched)">
+                          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="invalid-feedback">
+                            <div *ngIf="firstName.errors?.['required']">
+                              This field is required.
+                            </div>
+                            <div *ngIf="firstName.errors?.['minlength']">
+                              This field must have at least 1 character.
+                            </div>
+                            <div *ngIf="firstName.errors?.['maxlength']">
+                              This field must have at most 250 characters.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col mb-2">
+                          <label for="lastName" class="form-label">Last Name:</label>
+                          <input type="text" id="lastName" name="lastName" #lastName="ngModel" [(ngModel)]="user.lastName" maxlength="10" class="form-control form-control-sm" [class.is-invalid]="lastName.invalid && (lastName.dirty || lastName.touched)">
+                          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="invalid-feedback">
+                            <div *ngIf="lastName.errors?.['maxlength']">
+                              This field must have at most 10 characters.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col mb-2">
+                          <label for="email" class="form-label">Email:</label>
+                          <input type="email" id="email" name="email" #email="ngModel" [(ngModel)]="user.email"  required minlength="1" maxlength="250" appEmailValidator class="form-control form-control-sm" [class.is-invalid]="email.invalid && (email.dirty || email.touched)">
+                          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+                            <div *ngIf="email.errors?.['required']">
+                              This field is required.
+                            </div>
+                            <div *ngIf="email.errors?.['minlength']">
+                              This field must have at least 1 character.
+                            </div>
+                            <div *ngIf="email.errors?.['maxlength']">
+                              This field must have at most 250 characters.
+                            </div>
+                            <div *ngIf="!email.errors?.['required'] && !email.errors?.['minlength'] && !email.errors?.['maxlength'] && email.errors?.['emailValidator']">
+                              Invalid email format.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     <div class="row">
+                        <div class="col mb-8">
+                          <div class="clr-form-control">
+                            <label class="clr-control-label">Gender</label>
+                            <div class="clr-control-container clr-control-inline">
+                              <div class="clr-radio-wrapper">
+                                <input type="radio" id="vertical-radio1" name="radio-full" value="option1" class="clr-radio" />
+                                <label for="vertical-radio1" class="clr-control-label">Male</label>
+                              </div>
+                              <div class="clr-radio-wrapper">
+                                <input type="radio" id="vertical-radio3" name="radio-full" value="option3" class="clr-radio" />
+                                <label for="vertical-radio3" class="clr-control-label">Female</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>                      
+                      <label class="clr-control-label">User Type</label>
+                      <div class="dropdown open">
+                        <button class="dropdown-toggle btn btn-primary" type="button">
+                            Select user type
+                        </button>
+                        <div class="dropdown-menu ddnVisibility">
+                            <div class="dropdown-item active">Regular</div>
+                            <div class="dropdown-item ">Guest</div>
+                        </div>
+                    </div> 
+                      <div class="row">
+                        <div class="col mb-2 d-grid">
+                          <button type="button" class="btn btn-sm btn-primary" (click)="validate(form)">Validate</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            <!-- =============================================== -->
+            <!-- <clr-input-container>
+              <label>Field 1 label</label>
+               <input clrInput type="text" [(ngModel)]="model" name="example" /> 
+            </clr-input-container>
+            <clr-input-container>
+              <label>Field 2 label</label>
+              <input clrInput type="text" [(ngModel)]="model" name="example" /> 
+            </clr-input-container>
+            <div class="form-group">
+                <label for="empFirstName">First name</label>
+                <label for="empFirstName"
+                    aria-haspopup="true"
+                    role="tooltip"
+                    class="tooltip tooltip-validation tooltip-md">
+                    [class.invalid]="firstNameInput.invalid && (firstNameInput.dirty || firstNameInput.touched)"> 
+                    
+                    <input type="text" id="empFirstName" placeholder="Enter first name"
+                        required
+                        name="firstName">
+                         [(ngModel)]="model.firstName"
+                        #firstNameInput="ngModel"> 
+                    <span class="tooltip-content">
+                        First Name is Required.
+                    </span>
+                </label>
+            </div> -->
+          </form>
+        <!-- <form #employeeForm="ngForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
+            <section class="form-block">
+                <label>Add Employee Information</label>
+                <div class="form-group">
+                    <label for="empFirstName">First name</label>
+                    <label for="empFirstName"
+                        aria-haspopup="true"
+                        role="tooltip"
+                        class="tooltip tooltip-validation tooltip-md"
+                        [class.invalid]="firstNameInput.invalid && (firstNameInput.dirty || firstNameInput.touched)">
+                        <input type="text" id="empFirstName" placeholder="Enter first name"
+                            required
+                            name="firstName"
+                            [(ngModel)]="model.firstName"
+                            #firstNameInput="ngModel">
+                        <span class="tooltip-content">
+                            First Name is Required.
+                        </span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="empLastName">Last name</label>
+                    <label for="empLastName"
+                        aria-haspopup="true"
+                        role="tooltip"
+                        class="tooltip tooltip-validation tooltip-md"
+                        [class.invalid]="lastNameInput.invalid && (lastNameInput.dirty || lastNameInput.touched)">
+                        <input type="text" id="empLastName" placeholder="Enter last name"
+                            required
+                            name="lastName"
+                            [(ngModel)]="model.lastName"
+                            #lastNameInput="ngModel">
+                        <span class="tooltip-content">
+                            Last Name is Required.
+                        </span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="empType">Employee type</label>
+                    <div class="select">
+                        <select id="empType"
+                            name="employeeType"
+                            [(ngModel)]="model.employeeType">
+                            <option value="Default">Select Employee Type...</option>
+                            <option *ngFor="let type of employeeType" [value]="type">{{type}}</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit"
+                    [disabled]="employeeForm.form.invalid">Add</button>
+            </section>
+        </form> -->
+    </clr-wizard-page>
+
+    <clr-wizard-page>
+        <ng-template clrPageTitle>Book Preference</ng-template>
+        
+        <!-- <form clrForm (ngSubmit)="onFormSubmit()">
+          <clr-checkbox-container clrInline>
+            <clr-checkbox-wrapper *ngFor="let item of categories">
+            <input type="checkbox" clrCheckbox [(ngModel)]="item.selected" name="search" value=>
+              <label>{{ item.label }}</label>
+            </clr-checkbox-wrapper>            
+          </clr-checkbox-container>
+        </form> -->
+        <form clrForm (ngSubmit)="onFormSubmit()">
+          <clr-checkbox-container clrInline *ngFor="let item of categories">
+            <clr-checkbox-wrapper>
+            <input type="checkbox" clrCheckbox name="category1" value="">
+              <label>{{ item }}</label>
+            </clr-checkbox-wrapper>            
+          </clr-checkbox-container>
+        </form>
+        <button class="btn btn-sm" >Reset state</button>
+    </clr-wizard-page>
+
+    <clr-wizard-page>
+        <ng-template clrPageTitle>Preview: </ng-template>              
+        <clr-wizard-title>User Information:</clr-wizard-title>
+
+        <clr-wizard-title>Selected Book Preference:</clr-wizard-title>
+
+    </clr-wizard-page>
+</clr-wizard>
+<div>
+
+<!-- 
+  <button class="btn btn-sm" (click)="indeterminateState = true">
+  <clr-dg-row *ngFor="let user of users">
+    <clr-dg-cell>{{user.id}}</clr-dg-cell>
+    <clr-dg-cell>{{user.name}}</clr-dg-cell>
+    <clr-dg-cell>{{user.creation | date}}</clr-dg-cell>
+    <clr-dg-cell>{{user.color}}</clr-dg-cell>
+</clr-dg-row> 
+
+
+-->
+</div>

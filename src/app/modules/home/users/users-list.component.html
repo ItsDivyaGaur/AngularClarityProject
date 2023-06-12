@@ -1,0 +1,88 @@
+<div class="container mt-5">
+    <div class="d-flex flex-row-reverse bd-highlight">
+      <!-- <button class="btn btn-primary" routerLink="/add">Add Empoyee</button> -->
+    </div>
+    <h2 class="mb-3 text-center">Users Collection</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#Id</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">gender</th>
+          <th scope="col">userType</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of Users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.gender }}</td>
+          <td>{{ user.userType }}</td>
+          <td>
+            <span class="edit btn-danger btn-sm btn" (click)="delete(user.id)"
+              >Delete</span
+            >
+            &nbsp;
+            <span
+              class="edit btn-success btn-sm btn"
+              routerLink="/users/{{ user.id }}"
+              >Edit</span
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Add Users -->
+  <div class="container" style="max-width: 500px;">
+    <h3 class="mb-3 mt-5 text-center">Add User</h3>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObj.firstName" class="form-control" placeholder="First Name">
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObj.lastName" class="form-control" placeholder="Last Name">
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObj.email" class="form-control" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObj.gender" class="form-control" placeholder="Gender">
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObj.userType" class="form-control" placeholder="User Type">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success btn-md btn-block" (click)="addUser(userObj)">Add User</button>
+    </div>
+  </div>
+  <!-- Edit User -->
+  <div class="container" style="max-width: 500px;">
+    <h3 class="mb-3 mt-5 text-center">Update User</h3>
+  
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObject.firstName" class="form-control" placeholder="First Name">
+    </div>
+  
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObject.lastName" class="form-control" placeholder="Last Name">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObject.email" class="form-control" placeholder="Email">
+    </div>
+  
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObject.gender" class="form-control" placeholder="Gender">
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObject.userType" class="form-control" placeholder="User Type">
+    </div>
+  
+    <div class="form-group">
+      <button class="btn btn-success btn-md btn-block" (click)="updateUser(userObject.id, userObject)">Update User</button>
+    </div>  
+</div>

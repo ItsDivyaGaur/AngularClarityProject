@@ -1,0 +1,24 @@
+{
+    "BookDetails":
+    [
+       {
+          "category": "" ,
+          "subscribers":"",
+          "Users":""
+        },
+        {
+
+        }
+    ],
+    "UserDetails":
+    [
+        {
+            "id": 1,
+            "firstName": "Johney",
+            "lastName": "Harris",
+            "email": "johney@gmail.com",
+            "gender": "male",
+            "userType": "regular"
+        }
+    ]
+}

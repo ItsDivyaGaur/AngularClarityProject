@@ -1,0 +1,25 @@
+<div *ngFor="let data of booksData">
+    <div class="card">
+        <div class="card-img">
+            <img src="...">
+        </div>
+        <div class="card-block">
+            <h4 class="card-title">{{data.name | uppercase}}</h4>
+            <p class="card-text">
+            {{data.description}}
+            </p>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">{{data.author}}</li>
+            <li class="list-group-item">{{data.releaseYear}}</li>
+            <li class="list-group-item">{{data.ratings}}</li>
+        </ul>
+        <div class="card-footer">
+            <a href="..." class="btn btn-sm btn-link">Add</a>
+            <a href="..." class="btn btn-sm btn-link">Remove</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+   
+</div>

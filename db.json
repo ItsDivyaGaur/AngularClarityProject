@@ -1,0 +1,41 @@
+{
+  "BookDetails":
+  [
+     {
+         "id":1,
+         "name":"Atomic Habits",
+         "author":"James Clear",
+         "description":"Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+         "releaseYear":2018,
+         "status":"Released",
+         "ratings":4.5
+      },
+      {
+         "id":2,
+         "name":"The Psychology of Money ",
+         "author":"Morgan Housel",
+         "description":"Timeless lessons on wealth, Greed and happiness",
+         "releaseYear":2020,
+         "status":"Released",
+         "ratings":4.7
+      },
+      {
+         "id":3,
+         "name":"The Almanack of Naval Ravikant",
+         "author":"Eric Jorgenson",
+         "description":"A guide to wealth and happiness",
+         "releaseYear":2020,
+         "status":"Released",
+         "ratings":4.8
+      },
+      {
+         "id":4,
+         "name":"Ikigai",
+         "author":"Francesc Miralles and Hector Garcia",
+         "description":"Ikigai: The Japanese Secret to a Long and Happy Life",
+         "releaseYear":2016,
+         "status":"Released",
+         "ratings":4.7
+      }
+ ]
+}
